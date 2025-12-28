@@ -1,0 +1,46 @@
+[project]
+name = "todo"
+version = "1.0.0"
+description = "In-memory todo CLI application"
+requires-python = ">=3.13"
+authors = [
+    {name = "Todo Team", email = "todo@example.com"}
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "mypy>=1.0.0",
+    "flake8>=6.0.0",
+    "black>=23.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["todo"]
+package-dir = {"" = "src"}
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v"
+
+[tool.black]
+line-length = 100
+target-version = ["py313"]
+
+[tool.flake8]
+max-line-length = 100
+extend-ignore = ["E203", "W503"]
